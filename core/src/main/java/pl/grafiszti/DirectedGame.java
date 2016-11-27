@@ -35,7 +35,6 @@ public class DirectedGame implements ApplicationListener {
 		}
 
 		nextScreen.pause();
-		// Gdx.input.setInputProcessor(null); // wylaczamy input
 	}
 
 	@Override

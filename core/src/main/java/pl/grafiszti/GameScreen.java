@@ -7,19 +7,14 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class GameScreen extends AbstractScreen {
 	private ShapeRenderer shapeRenderer;
-
 	private Board board;
-
 	private float timeCounter = 0.0f;
 
 	public GameScreen(DirectedGame game) {
 		super(game);
 		shapeRenderer = new ShapeRenderer();
-		board = new Board(720);
+		board = new Board(Consts.SCREEN_WIDTH);
 	}
-
-	@Override
-	public void show() {}
 
 	@Override
 	public void render(float delta) {
@@ -48,19 +43,4 @@ public class GameScreen extends AbstractScreen {
 			}
 		}
 	}
-
-	@Override
-	public void resize(int width, int height) {}
-
-	@Override
-	public void pause() {}
-
-	@Override
-	public void resume() {}
-
-	@Override
-	public void hide() {}
-
-	@Override
-	public void dispose() {}
 }
