@@ -20,16 +20,6 @@ public class Board {
 		this.frame = generateRandomFrame(size);
 	}
 
-	private List<List<Boolean>> getEmptyFrame(int size) {
-		List<List<Boolean>> emptyFrame = new ArrayList<>();
-		IntStream.range(0, size).forEach(i -> {
-			List<Boolean> line = new ArrayList<>(Arrays.asList(new Boolean[size]));
-			Collections.fill(line, Boolean.FALSE);
-			emptyFrame.add(line);
-		});
-		return emptyFrame;
-	}
-
 	public boolean isSet(int x, int y) {
 		return frame.get(x).get(y).equals(Boolean.TRUE);
 	}
@@ -49,6 +39,16 @@ public class Board {
 		}));
 
 		this.frame = nextFrame;
+	}
+
+	private List<List<Boolean>> getEmptyFrame(int size) {
+		List<List<Boolean>> emptyFrame = new ArrayList<>();
+		IntStream.range(0, size).forEach(i -> {
+			List<Boolean> line = new ArrayList<>(Arrays.asList(new Boolean[size]));
+			Collections.fill(line, Boolean.FALSE);
+			emptyFrame.add(line);
+		});
+		return emptyFrame;
 	}
 
 	private int countNeighbours(int i, int j) {
@@ -102,7 +102,7 @@ public class Board {
 		IntStream.range(0, size).forEach(i -> line.add(Boolean.FALSE));
 		List<Integer> indexes = IntStream.range(0, size).boxed().collect(Collectors.toList());
 		Collections.shuffle(indexes);
-		indexes.subList(0, (int) (size * 0.2)).forEach(i -> line.set(i, Boolean.TRUE));
+		indexes.subList(0, (int) (size * Consts.PERCENT_OF_FILLED_AT_START)).forEach(i -> line.set(i, Boolean.TRUE));
 
 		return line;
 	}
