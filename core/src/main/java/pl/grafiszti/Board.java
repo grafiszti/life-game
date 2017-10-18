@@ -54,7 +54,7 @@ public class Board {
 	private int countNeighbours(int i, int j) {
 		return isUpperLeftSet(i, j) + isUpperSet(i, j) + isUpperRightSet(i, j) + //
 				isRightSet(i, j) + //
-				isdownRightSet(i, j) + isDownSet(i, j) + isDownLeftSet(i, j) + //
+				isDownRightSet(i, j) + isDownSet(i, j) + isDownLeftSet(i, j) + //
 				isLeftSet(i, j);
 	}
 
@@ -70,7 +70,7 @@ public class Board {
 		return i + 1 < size && isSet(i + 1, j) ? 1 : 0;
 	}
 
-	private int isdownRightSet(int i, int j) {
+	private int isDownRightSet(int i, int j) {
 		return i + 1 < size && j + 1 < size && isSet(i + 1, j + 1) ? 1 : 0;
 	}
 
